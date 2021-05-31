@@ -1,0 +1,73 @@
+{% extends 'main/base.html' %}
+{% block head %}
+
+<style>
+    .container {
+        background-color: white;
+        margin: 5%;
+       
+    }
+    h1,h4{
+        margin-left:5%;
+    }
+    h4{
+        color: blueviolet;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+{% include 'main/navbar.html'%}
+
+<div class="container">
+  <br>
+  <h4>ABOUT COVID-19</h4>
+<p>Coronaviruses (CoV) are a large family of viruses that cause illness ranging from the common cold to more severe
+diseases such as Middle East Respiratory Syndrome (MERS-CoV) and Severe Acute Respiratory Syndrome (SARS-CoV). A novel
+coronavirus (nCoV) is a new strain that has not been previously identified in humans.
+
+Coronaviruses are zoonotic, meaning they are transmitted between animals and people. Detailed investigations found that
+SARS-CoV was transmitted from civet cats to humans and MERS-CoV from dromedary camels to humans. Several known
+coronaviruses are circulating in animals that have not yet infected humans.
+
+Common signs of infection include respiratory symptoms, fever, cough, shortness of breath and breathing difficulties. In
+more severe cases, infection can cause pneumonia, severe acute respiratory syndrome, kidney failure and even death.
+
+Standard recommendations to prevent infection spread include regular hand washing, covering mouth and nose when coughing
+and sneezing, thoroughly cooking meat and eggs. Avoid close contact with anyone showing symptoms of respiratory illness
+such as coughing and sneezing.</p>
+
+<p>
+   <h3>Most common symptoms:</h3> 
+    fever <br>
+    dry cough<br>
+    tiredness<br>
+
+    <h3>Less common symptoms:</h3>
+    aches and pains<br>
+    sore throat<br>
+    diarrhoea<br>
+    conjunctivitis<br>
+    headache<br>
+    loss of taste or smell<br>
+    a rash on skin, or discolouration of fingers or toes<br>
+    
+    <h3>Serious symptoms:</h3>
+    difficulty breathing or shortness of breath<br>
+    chest pain or pressure<br>
+    loss of speech or movement<br>
+</p>
+
+<h4> To prevent the spread of COVID-19: </h4>
+
+Clean your hands often. Use soap and water, or an alcohol-based hand rub.<br>
+Maintain a safe distance from anyone who is coughing or sneezing.<br>
+Wear a mask when physical distancing is not possible.<br>
+Don’t touch your eyes, nose or mouth.<br>
+Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.<br>
+Stay home if you feel unwell.<br>
+If you have a fever, cough and difficulty breathing, seek medical attention.<br>
+<br>
+</div>
+
+{% endblock %}

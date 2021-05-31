@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+{% block head %}
+
+<style>
+    .container {
+        background-color: white;
+        margin:5%;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+{% include 'main/navbar.html'%}
+
+<div class="container">
+    <H3 style="color:rgb(33,2,193);margin:1%">COVID TESTING USING CHEST X-RAY</H3>
+    {% if rep %}
+    <H4 style="color:red;text-align:center;margin:5%">THE GIVEN SAMPLE IS CORONA {{ test }}</H4>
+    {% else %}
+    <H4 style="color:green;text-align:center;margin:5%">THE GIVEN SAMPLE IS CORONA {{ test }}</H4>
+    {% endif %}
+</div>
+
+{% endblock %}

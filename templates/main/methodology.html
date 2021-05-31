@@ -1,0 +1,68 @@
+{% extends 'main/base.html' %}
+{% block head %}
+
+<style>
+    .container {
+        background-color: white;
+        margin: 5%;
+
+    }
+
+    h1,
+    h4 {
+        margin-left: 5%;
+    }
+
+    h4 {
+        color: blueviolet;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+{% include 'main/navbar.html'%}
+
+<div class="container">
+    <br>
+    <h4>METHODOLOGY</h4>
+
+<p>We obtained the normal chest x-ray data from the kaggle and the covid chest xray dataset form github. The
+folder present in github consisted of a csv file names as ‘metadata.csv’ which was of 950 rows and 30 columns. This file
+contained the information about the covid positive chest x-ray images names and covid positive x-rays have findings as
+COVID-19 in the finding column of the csv file. Further there were different views of x-ray available there but we
+decided to choose only the AP, AP Supine, PA and AP erect view of the x-ray because those views were similar to the
+available normal chest xray dataset on kaggle and these views are most common in x-ray. So after applying those
+filtrations we obtained total of 478 covid positive x-ray images.
+After collecting all the covid positive x-ray images in a folder, we collected the same number of normal chest x-ray
+images. Then we split both the normal and covid positive x-ray in 80-20 ratio, 80% for training and 20% for validation.
+So in total we got 766 training images and 190 validation images.
+We used the transfer learning to get the pre-trained Resnet50 model and InsecptionV3 model, both the models were trained
+on imagenet dataset. Since we only needed to classify the covid positive or normal we removed the dense layer from
+Resnet50 model and kept the CNN layers only. After that we added the dense layer with 256 neurons with relu activation
+followed by the dropout layer with dropout 0.5 and finally the output with single neuron using softmax activation. In
+case of InceptionV3 model, we added the functional part of the Inception model to the sequential and then added
+globalaveragepooling2D followed by the dense layer with 512 neurons with relu activation, dropout layer with dropout of
+0.3 and the dense layer with single neuron with softmax activation for getting to know if image is normal or covid
+positive.
+After creating our model we moved to google colab for training since the colab provides GPU for faster processing and it
+would reduce lot of time for training since the ResNet50 and IncepitonV3 both are very large models with high number of
+parameters. To both the models we fed the input shape of image as 224*224. We used the batch size of 32 and the binary
+class mode since we are doing binary classification. We also used the early stopping provided by keras which helps to
+stop the training if we don’t have much improvement in the quantity we are monitoring. In our case, we monitored the validation loss and kept patience as 3 which means if there is no improvement in validation loss i.e. if it doesn’t
+decrease then the training will stop and the best weights till that epochs of training would get restored to the model.
+We then evaluated the model on the training and test dataset to get the final accuracy.
+We used the popular Grad-CAM technique in order to create the class-specific heatmap based on the given input image, the
+trained CNN model along with the chosen class of interest. This technique is able to highlight the important part of the
+image which is seen by the CNN model for recognizing or classifying the image.</p>
+
+
+
+
+
+
+
+
+    <br>
+</div>
+
+{% endblock %}
